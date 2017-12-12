@@ -1,0 +1,128 @@
+PROJECT <4> README FILE
+
+Author(s): 	<Anand Kulkarni>
+		<Sarang Rakhecha>
+
+PURPOSE:
+
+[
+  This project intends to use visitor design pattern to generate various statistics about the text file.
+]
+
+PERCENT COMPLETE:
+
+[
+  I believe, I have completed 100% of this project.
+]
+
+PARTS THAT ARE NOT COMPLETE:
+
+[
+  None.
+]
+
+BUGS:
+
+[
+  None.
+]
+
+FILES:
+
+[
+  Driver.java: This class contains the main method.
+  InputReaderI.java: This interface declares all methods which needs to be implemented by every contrete input reader implementation.
+  OutputWriterI.java.java: This interface declares all methods which needs to be implemented by every contrete output writer implementation.
+  FileProcessorNIO.java: This class provides implementation of file read and write operations using NIO library.
+  TreeI.java: This interface declares all methods to be implemented by every concrete tree implementation.
+  BSTree.java: This class implements TreeI interface and provides implementation of a binary search tree.
+  Node.java: This class represents information to be stored in each node of the tree data structure.
+  FileMode.java: This class represents different file modes which are used in this application.
+  TreeProcessingVisitorI.java: This interface declares a visit method which needs to be implemented by all concrete visitors.
+  GrepVisitor.java: This class contains the logic for searching a String/word in a tree.
+  PopulateTreeVisitor.java: This class contains the logic to populate the tree data structure.
+  WordCountVisitor.java: This class implements the logic for collecting different statistics from a given tree. 
+  TreeStats.java : This class is used to store different statistics of a given tree. 
+  README.txt: the text file you are presently reading.
+]
+
+SAMPLE OUTPUT:
+
+[
+  remote01:~/design patterns/assign4/kulkarni_anand_rakhecha_sarang_assign4> ant -buildfile Word_Count/build.xml clean
+  Buildfile: /import/linux/home/akulka15/design patterns/assign4/kulkarni_anand_rakhecha_sarang_assign4/Word_Count/build.xml
+
+  clean:
+
+  BUILD SUCCESSFUL
+  Total time: 0 seconds
+  remote01:~/design patterns/assign4/kulkarni_anand_rakhecha_sarang_assign4> ant -buildfile Word_Count/build.xml all
+  Buildfile: /import/linux/home/akulka15/design patterns/assign4/kulkarni_anand_rakhecha_sarang_assign4/Word_Count/build.xml
+
+  prepare:
+      [mkdir] Created dir: /import/linux/home/akulka15/design patterns/assign4/kulkarni_anand_rakhecha_sarang_assign4/Word_Count/BUILD
+      [mkdir] Created dir: /import/linux/home/akulka15/design patterns/assign4/kulkarni_anand_rakhecha_sarang_assign4/Word_Count/BUILD/classes
+
+  wordCount:
+      [javac] /import/linux/home/akulka15/design patterns/assign4/kulkarni_anand_rakhecha_sarang_assign4/Word_Count/build.xml:48: warning: 'includeantruntime' was not set, 
+            defaulting to build.sysclasspath=last; set to false for repeatable builds
+      [javac] Compiling 14 source files to /import/linux/home/akulka15/design patterns/assign4/kulkarni_anand_rakhecha_sarang_assign4/Word_Count/BUILD/classes
+
+  compile_all:
+
+  all:
+
+  BUILD SUCCESSFUL
+  Total time: 2 seconds
+  remote01:~/design patterns/assign4/kulkarni_anand_rakhecha_sarang_assign4> ant -buildfile Word_Count/build.xml run -Darg0=InputAssignment4.txt -Darg1=output.txt -Darg2=100 -Darg3=and
+  Buildfile: /import/linux/home/akulka15/design patterns/assign4/kulkarni_anand_rakhecha_sarang_assign4/Word_Count/build.xml
+
+  jar:
+      [mkdir] Created dir: /import/linux/home/akulka15/design patterns/assign4/kulkarni_anand_rakhecha_sarang_assign4/Word_Count/BUILD/jar
+      [jar] Building jar: /import/linux/home/akulka15/design patterns/assign4/kulkarni_anand_rakhecha_sarang_assign4/Word_Count/BUILD/jar/wordCount.jar
+
+  run:
+     [java] Average Time required per iteration: 21 miliseconds
+
+  BUILD SUCCESSFUL
+  Total time: 3 seconds
+  remote01:~/design patterns/assign4/kulkarni_anand_rakhecha_sarang_assign4> 
+]
+
+TO COMPILE:
+
+[
+  Steps for program compilation :
+  1. Compile all java classes by using following command :	
+	 ant -buildfile Word_Count/build.xml all
+]
+
+TO RUN:
+
+[
+  Steps for program execution :
+  1. Execute following command to run the program :
+	ant -buildfile Word_Count/build.xml run -Darg0=<INPUT_FILE_PATH> -Darg1=<OUTPUT_FILE_PATH> -Darg2=<NUM_ITERATIONS> -Darg3=<SEARCH_STRING>
+	For example : ant -buildfile Word_Count/build.xml run -Darg0=Word_Count/input.txt -Darg1=output.txt -Darg2=100 -Darg3=Design
+]
+
+EXTRA CREDIT:
+
+[
+  None.
+]
+
+BIBLIOGRAPHY:
+
+This serves as evidence that we are in no way intending Academic Dishonesty.
+<Anand Kulkarni>
+
+[
+  None.
+]
+
+ACKNOWLEDGEMENT:
+
+[
+  None.
+]

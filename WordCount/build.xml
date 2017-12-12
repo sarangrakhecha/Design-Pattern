@@ -1,0 +1,67 @@
+<project name="Word_Count" default="compile_all" basedir="..">
+
+  <property name="BUILD.compiler"       value="modern"/>
+  <property name="src"                  value="Word_Count/java.src"/>
+  <property name="BUILD"                value="Word_Count/BUILD"/>
+  <property name="classes"              value="${BUILD}/classes"/>
+
+
+  <target name="all" depends="compile_all"/>
+
+  <target name="compile_all"
+          depends="wordCount"/>
+
+  <target name="clean">
+       <delete dir="${BUILD}"/>
+  </target>
+
+  <!-- Prepare target directories -->
+  <target name="prepare">
+        <mkdir dir="${BUILD}"/>
+        <mkdir dir="${classes}"/>
+  </target>
+
+
+ <target name="jar">
+        <mkdir dir="${BUILD}/jar"/>
+        <jar destfile="${BUILD}/jar/wordCount.jar" basedir="${BUILD}/classes">
+            <manifest>
+                <attribute name="Main-Class" value="wordCount.driver.Driver"/>
+            </manifest>
+        </jar>
+    </target>
+
+
+
+  <!-- ** means all subdirectories as well -->
+  <!-- * means all files in the current directory -->
+  <!-- for just java files use *.java -->
+
+  <target name="wordCount" depends="prepare">
+    <javac srcdir="${src}"
+           includes="wordCount/**"
+           excludes="**/package.html"
+           destdir="${classes}"
+           classpath="${classes}"
+           debug="on"
+           optimize="on"
+           deprecation="off"/>
+  </target>
+
+
+<target name="run" depends="jar">
+        <java jar="${BUILD}/jar/wordCount.jar"  fork="true">
+		<arg value="${arg0}"/>
+		<arg value="${arg1}"/>
+		<arg value="${arg2}"/>
+		<arg value="${arg3}"/>
+        </java>
+	
+    </target>
+
+<target name="tarzip" > 
+	    <delete file="./kulkarni_anand_rakhecha_sarang_assign4.tar" quiet="true" /> 
+	    <tar destfile="${BUILD}/dist/kulkarni_anand_rakhecha_sarang_assign4.tar.gz" basedir="../" compression="gzip"/>
+</target>
+
+</project>
